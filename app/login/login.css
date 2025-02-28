@@ -1,0 +1,68 @@
+body {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+  .login {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .iconlogo {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .pokeball {
+    width: 118px;
+    height: 118px;
+  }
+  .tittle {
+    color: white;
+    font-size: 24px;
+    font-family: "DM Sans", sans-serif;
+    font-weight: 700;
+  }
+  .inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .inputs input {
+    width: 80%;
+    height: 40px;
+    margin: 10px;
+    border-radius: 5px;
+    border: none;
+    padding: 10px;
+  }
+  .buttonslinks {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #f5f5f5;
+  }
+  .create {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+  }
+  .create {
+    font-size: 13px;
+  }
+
+  a {
+    color: #f5f5f5;
+    text-decoration: none;
+  }
