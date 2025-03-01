@@ -1,9 +1,10 @@
 import "./login.css";
 import ShinyText from "@/components/ShinyText";
+import Link from "next/link";
 
 function LoginPage() {
   return (
-    <div className="login mt-30">
+    <div className="login mt-20">
       <div className="iconlogo">
         <img className="pokeball" src="/pokeball.webp" alt="poke" />
         <ShinyText
@@ -23,11 +24,11 @@ function LoginPage() {
           <div className="create">
             <p>¿No tienes cuenta de entrenador?</p>
             &nbsp;
-            <a href="register.html" className="createacount">
+            <a href="/register" className="createacount">
               CREA TU CUENTA
             </a>
           </div>
-          <a href="forgotpassword.html" className="create pas">
+          <a href="#" className="create pas">
             OlVIDE MI CONTRASEÑA
           </a>
         </div>

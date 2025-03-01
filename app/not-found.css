@@ -1,0 +1,35 @@
+.gradient-button {
+    margin: 10px;
+    padding: 15px 30px;
+    width: 320px;
+    max-width: 320px;
+    height: 50px;
+    font-size: 13px;
+    color: white;
+    background: linear-gradient(45deg, #8c00ff, #fffb00, #ff00f6);
+    background-size: 300% 300%;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    animation: gradient-move 5s ease infinite;
+    font-weight: bold;
+  }
+  
+  @keyframes gradient-move {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .gradient-button:hover {
+    animation: gradient-move 2s ease infinite;
+  }
