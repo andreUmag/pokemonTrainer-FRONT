@@ -1,5 +1,6 @@
 import "./home.css";
 import ShinyText from "@/components/ShinyText";
+import SpotlightCard from "@/components/SpotlightCard";
 
 function HomePage() {
   return (
@@ -21,7 +22,12 @@ function HomePage() {
           <div className="battles"></div>
         </div>
         <div className="right-column">
-          <div className="team"></div>
+          <div className="team">
+            <div className="mininav">this mininav</div>
+            <div className="cardsteams">
+
+            </div>
+          </div>
         </div>
       </div>
     </div>

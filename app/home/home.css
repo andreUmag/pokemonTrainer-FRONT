@@ -14,15 +14,15 @@
   height: 600px;
   display: flex;
   flex-direction: row;
-  border: #666666 4px solid;
   margin-top: 15px;
+  display: grid;
+  columns: 2;
 }
 
 .battles {
   border-radius: 15px;
   width: 98%;
   height: 100%;
-  border: #666666 4px solid;
 }
 
 .user {
@@ -59,12 +59,12 @@
   align-items: center;
 }
 
-.usertags{
+.usertags {
   grid-column: 1;
   margin-top: 130px;
 }
 
-.trainer{
+.trainer {
   font-size: 42px;
   font-weight: bolder;
   line-height: 1;
@@ -78,16 +78,21 @@
   color: transparent;
 }
 
+
+
 @media (max-width: 700px) {
-  .team {
-    flex-direction: column;
+  .columns {
+    grid-template-columns: 1fr;
   }
 
-  .home-page .user{
+  .home-page {
+    width: 100%;
+  }
+
+  .home-page .user {
     width: 99%;
     height: 190px;
   }
-
 
   .home-page .battles {
     width: 99%;
@@ -105,14 +110,15 @@
     width: calc(100% - 1px);
     margin: 5px;
     height: 400px;
+    margin-bottom: 180px;
   }
 
-  .usertags{
+  .usertags {
     grid-column: 1;
     margin-top: 50px;
   }
-  
-  .trainer{
+
+  .trainer {
     margin-top: 40px;
     font-size: 24px;
     font-weight: bolder;
@@ -120,15 +126,20 @@
     line-height: 1;
   }
 
-  .trainerName{
+  .trainerName {
     font-size: 18px;
     font-weight: bolder;
     line-height: 1;
   }
+
 }
 
 @media (min-width: 768px) {
   .columns {
     grid-template-columns: 1fr 1fr;
+  }
+
+  .home-page {
+    width: auto;
   }
 }
