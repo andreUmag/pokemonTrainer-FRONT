@@ -1,3 +1,5 @@
+'use client';
+
 import "./login.css";
 import ShinyText from "@/components/ShinyText";
 import Link from "next/link";

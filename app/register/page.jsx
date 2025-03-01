@@ -1,3 +1,5 @@
+'use client';
+
 import "./register.css";
 import ShinyText from "@/components/ShinyText";
 

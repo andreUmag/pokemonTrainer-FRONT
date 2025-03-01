@@ -33,3 +33,9 @@
   .gradient-button:hover {
     animation: gradient-move 2s ease infinite;
   }
+
+  @media (min-width: 768px) {
+    .fourcerfour{
+      font-size: 100px;
+    }
+  }

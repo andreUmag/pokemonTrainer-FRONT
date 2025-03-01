@@ -1,0 +1,11 @@
+.navbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: rgba(113, 113, 113, 0.047);
+}
+
+.tittle {
+    font-size: 24px;
+    font-weight: 700;
+  }
