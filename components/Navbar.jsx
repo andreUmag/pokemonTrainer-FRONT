@@ -9,7 +9,7 @@ export default function Navbar() {
           text="POKEMON TRAINER"
           disabled={false}
           speed={5}
-          className="tittle"
+          className="tittle ml-5"
         />
       </div>
       <div className="flex-none">

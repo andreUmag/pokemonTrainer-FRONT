@@ -1,0 +1,48 @@
+.card {
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    width: 170px;
+    height: 250px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    margin: 15px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+}
+
+.name {
+    font-size: 24px;
+    margin-bottom: 10px;
+    color: #555;
+}
+
+.imageContainer {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.description {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.attacks {
+    font-size: 14px;
+    text-align: left;
+}
+
+.imgpoke{
+    width: 70px;
+    height: auto;
+}
+
+@media (max-width: 700px) {
+    .card{
+        margin: 5px;
+    }
+}
