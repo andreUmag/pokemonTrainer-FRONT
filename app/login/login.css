@@ -38,6 +38,9 @@ body {
   border-radius: 15px;
   border: 1px solid #7f7f7f;
   padding: 10px;
+  font-weight: bold;
+  font-size: 13px;
+  padding-left: 20px;
 }
 .buttonslinks {
   display: flex;

@@ -15,6 +15,9 @@ export const metadata = {
 export default function RootLayout({children}){
     return (
         <html>
+            <head>
+                <link rel="icon" type='image/x-icon' href="/pokeballico.ico" />
+            </head>
             <body className={dmsans.className}>
                 {children}
             </body>
