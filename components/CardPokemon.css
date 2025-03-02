@@ -1,48 +1,63 @@
 .card {
-    border: 1px solid #ccc;
-    border-radius: 10px;
     width: 170px;
-    height: 250px;
+    height: 305px;
+    background: linear-gradient(to bottom, #52064f, #000000);
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 10px;
     text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    background-color: #f9f9f9;
-    margin: 15px;
-    display: grid;
+    border: 3px solid #f1c40f;
+    color: white;
+    margin: 5px;
+  }
+  
+  .name {
+    font-size: 22px;
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  }
+  
+  .imageContainer {
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2), transparent);
+    padding: 10px;
+    border-radius: 8px;
     align-items: center;
     justify-content: center;
-}
-
-.name {
-    font-size: 24px;
-    margin-bottom: 10px;
-    color: #555;
-}
-
-.imageContainer {
-    margin-bottom: 15px;
     display: flex;
-    align-items: center;
-    justify-content: center;
-}
+  }
+  
+  .imgpoke {
+    width: 80%;
+    border-radius: 8px;
 
-.description {
+  }
+  
+  .description {
     font-size: 14px;
-    color: #555;
-    margin-bottom: 15px;
-}
-
-.attacks {
-    font-size: 14px;
-    text-align: left;
-}
-
-.imgpoke{
-    width: 70px;
-    height: auto;
-}
-
-@media (max-width: 700px) {
-    .card{
-        margin: 5px;
-    }
-}
+    font-style: italic;
+    margin: 8px 0;
+    max-height: 3.6em; /* Limita a aproximadamente 2 líneas */
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Muestra solo 2 líneas */
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+  }
+  
+  .attacks {
+    margin-top: 10px;
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+  }
+  
+  .attacks p {
+    margin: 5px 0;
+    font-size: 12px;
+  }
+  
+  .attacks strong {
+    color: #ffeb3b;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  }
+  

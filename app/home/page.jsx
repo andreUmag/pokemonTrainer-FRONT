@@ -5,13 +5,15 @@ import PokemonCard from "@/components/CardPokemon";
 
 const pokemonTeam = [
   {
+    id: 1,
     name: "Pikachu",
-    imageUrl: "./pokeball.webp", // Actualiza la ruta de imagen si es necesario
+    imageUrl: "./pokeball.webp",
     description: "Un Pokémon eléctrico muy popular y poderoso.",
     attack1: "Impactrueno",
     attack2: "Onda Trueno",
   },
   {
+    id: 2,
     name: "Charizard",
     imageUrl: "./pokeball.webp",
     description: "Un Pokémon de fuego y volador increíblemente fuerte.",
@@ -19,6 +21,7 @@ const pokemonTeam = [
     attack2: "Vuelo",
   },
   {
+    id: 3,
     name: "Bulbasaur",
     imageUrl: "./pokeball.webp",
     description: "Un Pokémon planta con poderes curativos.",
@@ -26,6 +29,7 @@ const pokemonTeam = [
     attack2: "Hoja Afilada",
   },
   {
+    id: 4,
     name: "Squirtle",
     imageUrl: "./pokeball.webp",
     description: "Un Pokémon de agua, pequeño pero tenaz.",
@@ -33,6 +37,7 @@ const pokemonTeam = [
     attack2: "Caparazón",
   },
   {
+    id: 5,
     name: "Jigglypuff",
     imageUrl: "./pokeball.webp",
     description: "Un Pokémon que adormece a sus oponentes con su canto.",
@@ -58,7 +63,19 @@ function HomePage() {
               <p className="trainerName">HITMAN RONALD</p>
             </div>
           </div>
-          <div className="battles">hi battles</div>
+          <div className="battles">
+            <div className="mininav">
+              <ShinyText
+                text="MIS BATALLAS"
+                disabled={false}
+                speed={5}
+                className="teamtext"
+              />
+            </div>
+            <div className="battlescards">
+              
+            </div>
+          </div>
         </div>
         <div className="row-down">
           <div className="team">
@@ -67,25 +84,19 @@ function HomePage() {
                 text="MI EQUIPO"
                 disabled={false}
                 speed={5}
-                className="teamtext"
+                className="teamtext "
               />
             </div>
             <div className="cardsteams">
-              {pokemonTeam.map((pokemon, index) => (
-                // <Magnet
-                //   key={index}
-                //   padding={200}
-                //   disabled={false}
-                //   magnetStrength={20}
-                // >
+              {pokemonTeam.map((pokemon) => (
                   <PokemonCard
+                    key={pokemon.id}
                     name={pokemon.name}
                     imageUrl={pokemon.imageUrl}
                     description={pokemon.description}
                     attack1={pokemon.attack1}
                     attack2={pokemon.attack2}
                   />
-                // </Magnet>
               ))}
             </div>
           </div>

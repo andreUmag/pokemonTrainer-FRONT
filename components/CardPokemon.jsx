@@ -1,5 +1,5 @@
 'use client';
-import Image from 'next/image';
+
 import './CardPokemon.css';
 
 const PokemonCard = ({ name, imageUrl,description, attack1, attack2 }) => {
@@ -11,8 +11,8 @@ const PokemonCard = ({ name, imageUrl,description, attack1, attack2 }) => {
       </div>
       <p className='description'>{description}</p>
       <div className='attacks'>
-        <p><strong>Ataque 1:</strong> {attack1}</p>
-        <p><strong>Ataque 2:</strong> {attack2}</p>
+        <p><strong>Atak1:</strong> {attack1}</p>
+        <p><strong>Atak2:</strong> {attack2}</p>
       </div>
     </div>
   );
