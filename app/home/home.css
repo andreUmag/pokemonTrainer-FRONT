@@ -43,6 +43,7 @@
   height: 30%;
   margin-top: 20px;
   display: flex;
+  background-color: #181820;
 }
 
 .user img {
