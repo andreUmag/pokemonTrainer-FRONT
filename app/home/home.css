@@ -90,12 +90,10 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  /* Para Firefox */
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
 
-/* Para Chrome, Safari y Opera */
 .battlescards::-webkit-scrollbar {
   height: 4px;
 }
@@ -104,10 +102,7 @@
   background: transparent;
 }
 
-.battlescards::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 2px;
-}
+
 
 @media (max-width: 700px) {
   .rows {

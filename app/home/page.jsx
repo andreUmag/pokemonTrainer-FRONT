@@ -73,14 +73,14 @@ function HomePage() {
               />
             </div>
             <div className="battlescards flex">
-              <BattleCard win={true}/>
-              <BattleCard win={false}/>
-              <BattleCard win={true}/>
-              <BattleCard win={false}/>
-              <BattleCard win={true}/>
-              <BattleCard win={false}/>
-              <BattleCard win={true}/>
-              <BattleCard win={false}/>
+              <BattleCard date={'05/05/2020'}win={true}/>
+              <BattleCard date={'05/05/2020'}win={false}/>
+              <BattleCard date={'05/05/2020'}win={true}/>
+              <BattleCard date={'05/05/2020'}win={false}/>
+              <BattleCard date={'05/05/2020'}win={true}/>
+              <BattleCard date={'05/05/2020'}win={false}/>
+              <BattleCard date={'05/05/2020'}win={true}/>
+              <BattleCard date={'05/05/2020'}win={false}/>
             </div>
           </div>
         </div>

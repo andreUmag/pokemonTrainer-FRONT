@@ -1,12 +1,41 @@
 .cardd {
     width: 120px;
     height: 140px;
+    max-width: 120px;
+    max-height: 140px;
+    min-height: 110px;
+    min-width: 130px;
     --bgColor: #ff00003b;
     background: linear-gradient(to bottom, #181820 15%, var(--bgColor) 90%);
     border-radius: 15px;
     border: 3px solid #2c2c2c;
     color: white;
     margin: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+}
+
+.imgBattle {
+    width: 60px;
+    height: 60px;
+    color: white;
+}
+
+.imageContainerBattle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.date, .result{
+    font-size: 15px;
+    color: white;
+    font-weight: bold;
 }
 
 @media (max-width: 700px) {
