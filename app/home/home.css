@@ -77,10 +77,36 @@
   font-weight: bold;
   margin-top: 10px;
 }
-.cardsteams{
-  margin-top: 20px;  
+.cardsteams {
+  margin-top: 20px;
   display: flex;
   justify-content: center;
+}
+
+.battlescards {
+  display: flex;
+  width: 93%;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  /* Para Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+}
+
+/* Para Chrome, Safari y Opera */
+.battlescards::-webkit-scrollbar {
+  height: 4px;
+}
+
+.battlescards::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.battlescards::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 2px;
 }
 
 @media (max-width: 700px) {
@@ -119,6 +145,7 @@
   }
 
   .home-page .team {
+    margin-top: -20px;
     width: calc(100% - 1px);
     height: 400px;
   }
@@ -150,11 +177,19 @@
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columnas */
   }
-  
-  .teamtext{
+
+  .teamtext {
     margin-left: 32;
   }
-  
+
+  .battlescards {
+    width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    width: 370px;
+  }
 }
 
 @media (min-width: 768px) {

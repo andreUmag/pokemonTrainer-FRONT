@@ -1,7 +1,7 @@
 import "./home.css";
 import ShinyText from "@/components/ShinyText";
-import Magnet from "@/components/Magnet";
 import PokemonCard from "@/components/CardPokemon";
+import BattleCard from "@/components/CardBattle";
 
 const pokemonTeam = [
   {
@@ -23,7 +23,7 @@ const pokemonTeam = [
   {
     id: 3,
     name: "Bulbasaur",
-    imageUrl: "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2019/11/Squirtle-Using-Water-Gun-Attack.jpg  ",
+    imageUrl: "https://static.wikia.nocookie.net/kingsfan-characters/images/9/9b/Ash%27s_bulbasaur.png",
     description: "Un Pokémon planta con poderes curativos.",
     attack1: "Latigazo",
     attack2: "Hoja Afilada",
@@ -31,7 +31,7 @@ const pokemonTeam = [
   {
     id: 4,
     name: "Squirtle",
-    imageUrl: "https://static.wikia.nocookie.net/kingsfan-characters/images/9/9b/Ash%27s_bulbasaur.png",
+    imageUrl: "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2019/11/Squirtle-Using-Water-Gun-Attack.jpg  ",
     description: "Un Pokémon de agua, pequeño pero tenaz.",
     attack1: "Pistola Agua",
     attack2: "Caparazón",
@@ -72,7 +72,16 @@ function HomePage() {
                 className="teamtext"
               />
             </div>
-            <div className="battlescards"></div>
+            <div className="battlescards flex">
+              <BattleCard win={true}/>
+              <BattleCard win={false}/>
+              <BattleCard win={true}/>
+              <BattleCard win={false}/>
+              <BattleCard win={true}/>
+              <BattleCard win={false}/>
+              <BattleCard win={true}/>
+              <BattleCard win={false}/>
+            </div>
           </div>
         </div>
         <div className="row-down">

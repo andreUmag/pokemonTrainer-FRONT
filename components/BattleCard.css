@@ -1,0 +1,18 @@
+.cardd {
+    width: 120px;
+    height: 140px;
+    --bgColor: #ff00003b;
+    background: linear-gradient(to bottom, #181820 15%, var(--bgColor) 90%);
+    border-radius: 15px;
+    border: 3px solid #2c2c2c;
+    color: white;
+    margin: 5px;
+}
+
+@media (max-width: 700px) {
+    .cardd {
+        width: 115px;
+        height: 135px;
+        margin-top: 40px;
+    }
+}
