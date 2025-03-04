@@ -7,7 +7,8 @@ const pokemonTeam = [
   {
     id: 1,
     name: "Pikachu",
-    imageUrl: "https://ivector.xyz/public/wp-content/uploads/pikachu-electrico-vector-01.jpg",
+    imageUrl:
+      "https://ivector.xyz/public/wp-content/uploads/pikachu-electrico-vector-01.jpg",
     description: "Un Pokémon eléctrico muy popular y poderoso.",
     attack1: "Impactrueno",
     attack2: "Onda Trueno",
@@ -15,7 +16,8 @@ const pokemonTeam = [
   {
     id: 2,
     name: "Charizard",
-    imageUrl: "https://i.pinimg.com/736x/27/78/00/27780014e4740d691d824c3da7fa9167.jpg",
+    imageUrl:
+      "https://i.pinimg.com/736x/27/78/00/27780014e4740d691d824c3da7fa9167.jpg",
     description: "Un Pokémon de fuego y volador increíblemente fuerte.",
     attack1: "Llamarada",
     attack2: "Vuelo",
@@ -23,7 +25,8 @@ const pokemonTeam = [
   {
     id: 3,
     name: "Bulbasaur",
-    imageUrl: "https://static.wikia.nocookie.net/kingsfan-characters/images/9/9b/Ash%27s_bulbasaur.png",
+    imageUrl:
+      "https://static.wikia.nocookie.net/kingsfan-characters/images/9/9b/Ash%27s_bulbasaur.png",
     description: "Un Pokémon planta con poderes curativos.",
     attack1: "Latigazo",
     attack2: "Hoja Afilada",
@@ -31,7 +34,8 @@ const pokemonTeam = [
   {
     id: 4,
     name: "Squirtle",
-    imageUrl: "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2019/11/Squirtle-Using-Water-Gun-Attack.jpg  ",
+    imageUrl:
+      "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2019/11/Squirtle-Using-Water-Gun-Attack.jpg",
     description: "Un Pokémon de agua, pequeño pero tenaz.",
     attack1: "Pistola Agua",
     attack2: "Caparazón",
@@ -39,7 +43,8 @@ const pokemonTeam = [
   {
     id: 5,
     name: "Jigglypuff",
-    imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8zV4arjYWfTbmtyiYihhn-Q2gkV4EMbTrYA&s",
+    imageUrl:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8zV4arjYWfTbmtyiYihhn-Q2gkV4EMbTrYA&s",
     description: "Un Pokémon que adormece a sus oponentes con su canto.",
     attack1: "Canto",
     attack2: "Dulce Voz",
@@ -73,14 +78,18 @@ function HomePage() {
               />
             </div>
             <div className="battlescards flex">
-              <BattleCard date={'05/05/2020'}win={true}/>
-              <BattleCard date={'05/05/2020'}win={false}/>
-              <BattleCard date={'05/05/2020'}win={true}/>
-              <BattleCard date={'05/05/2020'}win={false}/>
-              <BattleCard date={'05/05/2020'}win={true}/>
-              <BattleCard date={'05/05/2020'}win={false}/>
-              <BattleCard date={'05/05/2020'}win={true}/>
-              <BattleCard date={'05/05/2020'}win={false}/>
+              {[
+                "05/05/2020",
+                "05/05/2020",
+                "05/05/2020",
+                "05/05/2020",
+                "05/05/2020",
+                "05/05/2020",
+                "05/05/2020",
+                "05/05/2020",
+              ].map((date, index) => (
+                <BattleCard key={index} date={date} win={index % 2 === 0} />
+              ))}
             </div>
           </div>
         </div>
@@ -91,7 +100,7 @@ function HomePage() {
                 text="MI EQUIPO"
                 disabled={false}
                 speed={5}
-                className="teamtext "
+                className="teamtext"
               />
             </div>
             <div className="cardsteams">
