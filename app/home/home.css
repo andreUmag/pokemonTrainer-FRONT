@@ -20,7 +20,6 @@
   height: 100%;
   display: grid;
   flex-direction: column;
-  margin-top: 15px;
   display: grid;
   columns: 2;
 }
@@ -90,19 +89,25 @@
   overflow-x: auto;
   scroll-behavior: smooth;
   -webkit-overflow-scrolling: touch;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
 }
 
 .battlescards::-webkit-scrollbar {
-  height: 4px;
+  width: 8px; 
+  height: 8px; 
+}
+
+.battlescards::-webkit-scrollbar-thumb {
+  background-color: rgba(67, 67, 67, 0.3); 
+  border-radius: 4px; 
 }
 
 .battlescards::-webkit-scrollbar-track {
-  background: transparent;
+  background-color: transparent; 
 }
 
-
+.battlescards::-webkit-scrollbar-button {
+  display: none; 
+}
 
 @media (max-width: 700px) {
   .rows {
@@ -140,7 +145,6 @@
   }
 
   .home-page .team {
-    margin-top: -20px;
     width: calc(100% - 1px);
     height: 400px;
   }

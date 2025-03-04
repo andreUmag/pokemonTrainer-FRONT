@@ -1,12 +1,11 @@
 .card {
     width: 170px;
     height: 305px;
-    /* background: linear-gradient(to bottom,#00000000, #340333a4); */
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     border: 3px solid #66666639;
     color: white;
-    margin: 5px;
+    margin: 6px;
   }
   
   .name {

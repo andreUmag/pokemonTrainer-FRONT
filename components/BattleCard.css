@@ -5,8 +5,7 @@
     max-height: 140px;
     min-height: 110px;
     min-width: 130px;
-    /* --bgColor: #ff00003b;
-    background: linear-gradient(to bottom, #181820 15%, var(--bgColor) 90%); */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 15px;
     border: 3px solid #2c2c2c;
     color: white;

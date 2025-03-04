@@ -13,7 +13,7 @@ spotlightColor="rgba(0, 229, 255, 0.2)"
 const BattleCard = ({ date, win }) => {
 
   var result = win ? "WIN" : "LOSE";
-  var color = win ? "0, 255, 0, 0.5" : "255, 0, 0, 0.5";
+  var color = win ? "0, 0, 255, 0.5" : "255, 0, 0, 0.5";
 
   return (
     <SpotlightCard 
