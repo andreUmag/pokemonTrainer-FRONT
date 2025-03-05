@@ -2,7 +2,11 @@
     display: flex;
     justify-content: space-between;
     padding: 10px;
-    background-color: rgba(113, 113, 113, 0.047);
+    background-color: #181820;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 }
 
 .tittle {

@@ -8,6 +8,11 @@
     margin: 6px;
   }
   
+  .card:hover {
+    transform: scale(1.02);
+    transition: 0.1s;
+  }
+
   .name {
     margin-top: 5px;
     font-size: 22px;
