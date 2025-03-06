@@ -3,13 +3,6 @@
 import "./BattleCard.css";
 import SpotlightCard from "@/components/SpotlightCard";
 
-
-{/* <SpotlightCard
-className="custom-spotlight-card"
-spotlightColor="rgba(0, 229, 255, 0.2)"
->
-</SpotlightCard> */}
-
 const BattleCard = ({ date, win }) => {
 
   var result = win ? "WIN" : "LOSE";
