@@ -1,6 +1,6 @@
 .card {
     width: 170px;
-    height: 305px;
+    height: 260px;
     border-radius: 15px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
     border: 3px solid #66666639;
@@ -43,19 +43,4 @@
     -webkit-box-orient: vertical;
   }
   
-  .attacks {
-    margin-top: 10px;
-    border-radius: 8px;
-    padding: 10px;
-  
-  }
-  
-  .attacks p {
-    margin: 5px 0;
-    font-size: 12px;
-  }
-  
-  .attacks strong {
-    color: #7a7a7a;
-  }
   

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import "./register.css";
 import ShinyText from "@/components/ShinyText";
@@ -15,11 +15,13 @@ function RegisterPage() {
           className="tittle"
         />
       </div>
-      <div className="inputs mb-5">
+      <form className="inputs mb-5">
         <input type="text" placeholder="USERNAME" />
-        <input type="text" placeholder="NOMBRE Y APELLIDO"/>
+        <input type="text" placeholder="NOMBRE Y APELLIDO" />
         <select defaultValue="">
-          <option value="" disabled>SEXO</option>
+          <option value="" disabled>
+            SEXO
+          </option>
           <option value="masculino">Masculino</option>
           <option value="femenino">Femenino</option>
         </select>
@@ -27,7 +29,7 @@ function RegisterPage() {
         <input type="tel" placeholder="CELULAR" />
         <input type="password" placeholder="CONTRASEÑA" />
         <input type="password" placeholder="CONFIRMAR CONTRASEÑA" />
-      </div>
+      </form>
       <div className="buttonslinks">
         <button className="gradient-button">CREAR CUENTA</button>
         <div className="links">

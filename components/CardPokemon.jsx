@@ -2,7 +2,7 @@
 
 import './CardPokemon.css';
 
-const PokemonCard = ({ name, imageUrl,description, attack1, attack2 }) => {
+const PokemonCard = ({ name, imageUrl,description }) => {
   return (
     <div className='card'>
       <div className='imageContainer'>
@@ -10,10 +10,6 @@ const PokemonCard = ({ name, imageUrl,description, attack1, attack2 }) => {
       </div>
       <h2 className='name'>{name}</h2>
       <p className='description'>{description}</p>
-      <div className='attacks'>
-        <p><strong>Atak1:</strong> {attack1}</p>
-        <p><strong>Atak2:</strong> {attack2}</p>
-      </div>
     </div>
   );
 };
