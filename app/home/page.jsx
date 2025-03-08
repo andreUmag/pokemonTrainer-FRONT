@@ -85,13 +85,20 @@ function HomePage() {
         </div>
         <div className="row-down">
           <div className="team">
-            <div className="mininav">
-              <ShinyText
-                text="MI EQUIPO"
-                disabled={false}
-                speed={5}
-                className="teamtext"
-              />
+            <div className="mininav flex">
+              <a href="/teams" className="flex">
+                <ShinyText
+                  text="MI EQUIPO"
+                  disabled={false}
+                  speed={5}
+                  className="teamtext"
+                />
+                <img
+                  src="./IconParkSolidEdit.svg"
+                  alt="edit"
+                  className="w-[20px] mt-2 ml-2"
+                />
+              </a>
             </div>
             <div className="cardsteams">
               {pokemonTeam.map((pokemon) => (
@@ -100,7 +107,7 @@ function HomePage() {
                   name={pokemon.name}
                   imageUrl={pokemon.imageUrl}
                   description={pokemon.description}
-                  attack1={pokemon.attack1}
+                  attack1={pokemon.attack1} 
                   attack2={pokemon.attack2}
                 />
               ))}

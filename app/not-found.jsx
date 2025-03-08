@@ -18,7 +18,7 @@ export default function notFound() {
         <div className="text-center">
       <h3 className="">Sorry, this page doesn't exist</h3>
       </div>    
-      <Link href="/login"><button className="gradient-button">Volver al Inicio</button></Link>
+      <Link href="/home"><button className="gradient-button">Volver al Inicio</button></Link>
     </div>
   );
 }

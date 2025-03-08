@@ -1,9 +1,15 @@
 "use client";
 
+import { redirect } from "next/navigation";
 import "./register.css";
 import ShinyText from "@/components/ShinyText";
 
 function RegisterPage() {
+
+  const redirectToHome = () => {
+    redirect("/home");
+  };
+
   return (
     <div className="login mt-20">
       <div className="iconlogo">
@@ -31,7 +37,7 @@ function RegisterPage() {
         <input type="password" placeholder="CONFIRMAR CONTRASEÑA" />
       </form>
       <div className="buttonslinks">
-        <button className="gradient-button">CREAR CUENTA</button>
+        <button className="gradient-button" onClick={redirectToHome}>CREAR CUENTA</button>
         <div className="links">
           <div className="create">
             <p>¿Ya tienes cuenta de entrenador?</p>
