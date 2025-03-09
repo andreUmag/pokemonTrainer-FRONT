@@ -5,8 +5,8 @@ import SpotlightCard from "@/components/SpotlightCard";
 
 const BattleCard = ({ date, win }) => {
 
-  var result = win ? "WIN" : "LOSE";
-  var color = win ? "0, 0, 255, 0.5" : "255, 0, 0, 0.5";
+  const result = win ? "WIN" : "LOSE";
+  const color = win ? "0, 0, 255, 0.5" : "255, 0, 0, 0.5";
 
   return (
     <SpotlightCard 
