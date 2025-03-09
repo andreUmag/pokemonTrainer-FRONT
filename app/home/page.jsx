@@ -1,7 +1,11 @@
+"use client";
 import "./home.css";
 import ShinyText from "@/components/ShinyText";
 import PokemonCard from "@/components/CardPokemon";
 import BattleCard from "@/components/CardBattle";
+import axiosClient from "@/lib/axiosClient";
+import { useEffect, useState } from "react";
+import Cookies from "js-cookie";
 
 const pokemonTeam = [
   {
@@ -42,6 +46,18 @@ const pokemonTeam = [
 ];
 
 function HomePage() {
+  const [user, setUser] = useState(null);
+  useEffect(() => {
+    const fetchUser = async () => {
+      const userId = Cookies.get("user_id");
+      axiosClient.get(`api/trainers/${userId}`).then((response) => {
+        console.log(response.data);
+        setUser(response.data);
+      });
+    };
+    fetchUser();
+  }, []);
+  
   return (
     <div className="home-page">
       <div className="rows">
@@ -55,7 +71,7 @@ function HomePage() {
                 speed={5}
                 className="trainer"
               />
-              <p className="trainerName">HITMAN RONALD</p>
+              <p className="trainerName">{user !== null ? user.firstName + ' ' + user.lastName : 'cargando...'}</p>
             </div>
           </div>
           <div className="battles">
