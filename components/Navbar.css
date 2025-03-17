@@ -3,9 +3,17 @@
     justify-content: space-between;
     padding: 10px;
     background-color: rgba(113, 113, 113, 0.047);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000; 
 }
 
 .tittle {
     font-size: 24px;
     font-weight: 700;
-  }
+}
+
+.user-menu{
+   background-color: rgba(113, 113, 113, 0.047); 
+}

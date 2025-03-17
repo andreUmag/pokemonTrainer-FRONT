@@ -22,7 +22,9 @@ function RegisterPage() {
     let shouldRedirect = false;
     axiosClient.post("api/trainers", form).then((response) => {
       if (response.status === 200) {
-        toast.success("Usuario creado correctamente");
+        toast.success("Usuario creado correctamente", {
+          duration: 2000,
+        });
         shouldRedirect = true;
       }
     }).catch((error) => {
@@ -63,7 +65,7 @@ function RegisterPage() {
         <input type="text" placeholder="NOMBRE" value={form.firstName} onChange={(e) => setForm({ ...form, firstName: e.target.value })} />
         <input type="text" placeholder="APELLIDO" value={form.lastName} onChange={(e) => setForm({ ...form, lastName: e.target.value })} />
         <input type="text" placeholder="CORREO" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} />
-        <input type="date" placeholder="FECHA DE NACIMIENTO" value={form.birthdate} onChange={(e) => setForm({ ...form, birthDate: e.target.value })} />
+        <input type="date" placeholder="FECHA DE NACIMIENTO" value={form.birthdate} onChange={(e) => {const selectedDate = e.target.value;setForm({ ...form, birthdate: selectedDate });}}/>
         <input type="password" placeholder="CONTRASEÑA" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} />
         <input type="password" placeholder="CONFIRMAR CONTRASEÑA" value={form.confirmPassword} onChange={(e) => setForm({ ...form, confirmPassword: e.target.value })} />
       </form>
@@ -73,7 +75,7 @@ function RegisterPage() {
           <div className="create">
             <p>¿Ya tienes cuenta de entrenador?</p>
             &nbsp;
-            <a href="/login" className="createacount">
+            <a href="/auth/login" className="createacount">
               INICIAR SESION
             </a>
           </div>

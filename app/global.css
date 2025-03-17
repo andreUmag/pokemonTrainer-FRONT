@@ -4,7 +4,11 @@
 body {
     background-color: #181820;
     color: aliceblue;
-    background-image: url('../public/pokefond.webp'); /* Ruta de la imagen */
-    background-size: cover; /* Ajusta la imagen al tamaño de la pantalla */
+    background-image: url('../public/pokefond.webp'); 
+    background-size: cover;
     background-repeat: no-repeat;
+
+}
+.main-content {
+    margin-top: 80px;
 }

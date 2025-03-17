@@ -28,7 +28,7 @@ function loginForm({ onLogin }) {
           <div className="create">
             <p>¿No tienes cuenta de entrenador?</p>
             &nbsp;
-            <a href="/register" className="createacount">
+            <a href="/auth/register" className="createacount">
               CREA TU CUENTA
             </a>
           </div>

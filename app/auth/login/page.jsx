@@ -13,7 +13,9 @@ function LoginPage() {
     let shouldRedirect = false;
     axiosClient.post("api/auth/login", form).then((response) => {
       if (response.status === 200) {
-        toast.success("Usuario logueado correctamente");
+        toast.success("Usuario logueado correctamente", {
+          duration: 2000,
+        });
         shouldRedirect = true;
         Cookies.set("user_id", response.data.id);
       }
@@ -24,13 +26,11 @@ function LoginPage() {
           .map((key) => errors[key])
           .join("<br>");
         toast.error(message, {
-          duration: 5000,
-          position: "top-center",
+          duration: 2000,
         });
       } else {
         toast.error("Error al loguear el usuario", {
-          duration: 5000,
-          position: "top-center",
+          duration: 2000,
         });
       }
     }).finally(() => {

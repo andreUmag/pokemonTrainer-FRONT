@@ -10,5 +10,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-    matcher: '/((?!auth|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt).*)'
-}
+    matcher: '/((?!auth|_next/static|_next/image|favicon.ico|sitemap.xml|robots.txt|pokeball.webp).*)',
+};
