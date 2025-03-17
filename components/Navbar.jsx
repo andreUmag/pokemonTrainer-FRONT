@@ -18,8 +18,7 @@ export default function Navbar() {
   };
 
   const handleEditProfile = () => {
-    console.log("Editar perfil");
-    window.location.href = "/auth/edit-profile";
+    window.location.href = "/home/edit-profile";
   };
 
   const handleDeleteAccount = () => {
