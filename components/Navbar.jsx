@@ -13,7 +13,7 @@ export default function Navbar() {
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
 
   const handleLogout = () => {
-    Cookies.remove("user_id");
+    Cookies.remove("auth_token");
     window.location.href = "/auth/login";
   };
 

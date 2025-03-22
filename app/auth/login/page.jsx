@@ -17,7 +17,9 @@ function LoginPage() {
           duration: 2000,
         });
         shouldRedirect = true;
-        Cookies.set("user_id", response.data.id);
+        console.log(response.data);
+        Cookies.set("auth_token", response.data.token);
+        Cookies.set("user_id", response.data.userId);
       }
     }).catch((error) => {
       if (error instanceof AxiosError) {

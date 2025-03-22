@@ -20,7 +20,7 @@ function RegisterPage() {
 
   const register = () => {
     let shouldRedirect = false;
-    axiosClient.post("api/trainers", form).then((response) => {
+    axiosClient.post("api/auth/register", form).then((response) => {
       if (response.status === 200) {
         toast.success("Usuario creado correctamente", {
           duration: 2000,

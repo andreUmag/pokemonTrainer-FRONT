@@ -2,9 +2,9 @@ import { NextResponse } from 'next/server'
 import {cookies} from "next/headers";
 
 export async function middleware(request) {
-    const userId = (await cookies()).get('user_id');
+    const token = (await cookies()).get('auth_token');
 
-    if (!userId && request.url !== '/auth/register') {
+    if (!token && request.url !== '/auth/register') {
         return NextResponse.redirect(new URL('/auth/login', request.url))
     }
 }

@@ -49,13 +49,11 @@ function HomePage() {
   const [user, setUser] = useState(null);
   useEffect(() => {
     const fetchUser = async () => {
-      const userId = Cookies.get("user_id");
-      axiosClient.get(`api/trainers/${userId}`).then((response) => {
-        console.log(response.data);
+      axiosClient.get(`api/auth/me`).then((response) => {
         setUser(response.data);
       });
     };
-    fetchUser();
+    fetchUser().then(r => console.log(r));
   }, []);
   
   return (
