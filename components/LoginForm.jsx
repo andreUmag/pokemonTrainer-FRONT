@@ -23,7 +23,7 @@ function loginForm({ onLogin }) {
         <input type="password" placeholder="CONTRASEÑA" value={form.password} onChange={(e) => setForm({ ...form, password: e.target.value })} />
       </div>
       <div className="buttonslinks">
-        <button className="gradient-button" onClick={() => onLogin(form)}>INICIAR SESION</button>
+        <button className="gradient-button" onClick={() => onLogin(form)}>INICIAR SESIÓN</button>
         <div className="links">
           <div className="create">
             <p>¿No tienes cuenta de entrenador?</p>
@@ -32,7 +32,7 @@ function loginForm({ onLogin }) {
               CREA TU CUENTA
             </a>
           </div>
-          <a href="#" className="create pas">
+          <a href="/auth/forgot-password" className="create pas">
             OlVIDE MI CONTRASEÑA
           </a>
         </div>
