@@ -7,55 +7,54 @@ import axiosClient from "@/lib/axiosClient";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 
-const pokemonTeam = [
-  {
-    id: 1,
-    name: "Pikachu",
-    imageUrl:
-      "https://ivector.xyz/public/wp-content/uploads/pikachu-electrico-vector-01.jpg",
-    description: "Un Pokémon eléctrico muy popular y poderoso.",
-  },
-  {
-    id: 2,
-    name: "Charizard",
-    imageUrl:
-      "https://i.pinimg.com/736x/27/78/00/27780014e4740d691d824c3da7fa9167.jpg",
-    description: "Un Pokémon de fuego y volador increíblemente fuerte.",
-  },
-  {
-    id: 3,
-    name: "Bulbasaur",
-    imageUrl:
-      "https://static.wikia.nocookie.net/kingsfan-characters/images/9/9b/Ash%27s_bulbasaur.png",
-    description: "Un Pokémon planta con poderes curativos.",
-  },
-  {
-    id: 4,
-    name: "Squirtle",
-    imageUrl:
-      "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2019/11/Squirtle-Using-Water-Gun-Attack.jpg",
-    description: "Un Pokémon de agua, pequeño pero tenaz.",
-  },
-  {
-    id: 5,
-    name: "Jigglypuff",
-    imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8zV4arjYWfTbmtyiYihhn-Q2gkV4EMbTrYA&s",
-    description: "Un Pokémon que adormece a sus oponentes con su canto.",
-  },
-];
+const pokemonTeam = [];
 
 function HomePage() {
+  const [pokemonTeam, setPokemonTeam] = useState([]);
   const [user, setUser] = useState(null);
+  const [battles, setBattles] = useState([]);
+
   useEffect(() => {
     const fetchUser = async () => {
       axiosClient.get(`api/auth/me`).then((response) => {
         setUser(response.data);
       });
     };
-    fetchUser().then(r => console.log(r));
+    fetchUser().then((r) => console.log(r));
   }, []);
-  
+
+  useEffect(() => {
+    const fetchPokemonTeam = async () => {
+      try {
+        const response = await fetch(
+          "https://run.mocky.io/v3/840d2992-5703-4bf0-bdb9-98af6ad303da"
+        );
+        const data = await response.json();
+        console.log("This is the endpoint`s teams", data);
+        setPokemonTeam(data);
+      } catch (error) {
+        console.error("Error al obtener el equipo Pokémon:", error);
+      }
+    };
+    fetchPokemonTeam();
+  }, []);
+
+  useEffect(() => {
+    const fetchBattles = async () => {
+      try {
+        const response = await fetch(
+          "https://run.mocky.io/v3/8ae2ce7a-35e6-4408-b9a7-dbcda9c09ad2"
+        );
+        const data = await response.json();
+        console.log("This is the endpoint's battles", data);
+        setBattles(data);
+      } catch (error) {
+        console.error("Error al obtener las batallas:", error);
+      }
+    };
+    fetchBattles();
+  }, []);
+
   return (
     <div className="home-page">
       <div className="rows">
@@ -69,7 +68,11 @@ function HomePage() {
                 speed={5}
                 className="trainer"
               />
-              <p className="trainerName">{user !== null ? user.firstName + ' ' + user.lastName : 'cargando...'}</p>
+              <p className="trainerName">
+                {user !== null
+                  ? (user.firstName + " " + user.lastName).toUpperCase()
+                  : "CARGANDO..."}
+              </p>
             </div>
           </div>
           <div className="battles">
@@ -82,17 +85,12 @@ function HomePage() {
               />
             </div>
             <div className="battlescards flex">
-              {[
-                "05/05/2020",
-                "05/05/2020",
-                "05/05/2020",
-                "05/05/2020",
-                "05/05/2020",
-                "05/05/2020",
-                "05/05/2020",
-                "05/05/2020",
-              ].map((date, index) => (
-                <BattleCard key={index} date={date} win={index % 2 === 0} />
+              {battles.map((battle, index) => (
+                <BattleCard
+                  key={battle.id || index}
+                  date={battle.fecha}
+                  win={battle.win}
+                />
               ))}
             </div>
           </div>
@@ -121,7 +119,7 @@ function HomePage() {
                   name={pokemon.name}
                   imageUrl={pokemon.imageUrl}
                   description={pokemon.description}
-                  attack1={pokemon.attack1} 
+                  attack1={pokemon.attack1}
                   attack2={pokemon.attack2}
                 />
               ))}
