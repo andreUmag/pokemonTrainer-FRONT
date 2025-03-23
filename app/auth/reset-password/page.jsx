@@ -4,7 +4,7 @@ import ShinyText from "@/components/ShinyText";
 import {toast} from "nextjs-toast-notify";
 import axiosClient from "@/lib/axiosClient";
 import "./reset-password.css";
-import {useSearchParams} from "next/navigation";
+import {redirect, useSearchParams} from "next/navigation";
 
 const Page = () => {
   const searchParams = useSearchParams();
@@ -23,17 +23,22 @@ const Page = () => {
       toast.error("Token inválido.");
       return;
     }
+    let shouldRedirect = false;
 
     try {
-      const response = await axiosClient.post("/api/auth/reset-password", {
+      await axiosClient.post("/api/auth/reset-password", {
         newPassword: form.password,
         token: searchParams.get("token"),
       });
       toast.success("Contraseña restablecida con éxito.");
-      redirect("/auth/login");
+      shouldRedirect = true;
     } catch (error) {
       const errorMessage = error.response?.data?.errors?.[0] || "Ocurrió un error inesperado.";
       toast.error(errorMessage);
+    }
+
+    if (shouldRedirect) {
+      redirect("/auth/login");
     }
   }
 
