@@ -17,6 +17,7 @@ export default function MorphingDialogBasicOne({
   name,
   imageUrl,
   description,
+  type,
 }) {
   return (
     <MorphingDialog
@@ -26,7 +27,7 @@ export default function MorphingDialogBasicOne({
         duration: 0.25,
       }}
     >
-      <MorphingDialogTrigger
+      <MorphingDialogTrigger asChild
         style={{
           borderRadius: "12px",
         }}
@@ -42,9 +43,9 @@ export default function MorphingDialogBasicOne({
             <MorphingDialogTitle className="text-zinc-950 dark:text-zinc-50">
               {name}
             </MorphingDialogTitle>
-            {/* <MorphingDialogSubtitle className="text-zinc-700 dark:text-zinc-400">
-              Edouard Wilfrid Buquet
-            </MorphingDialogSubtitle> */}
+            <MorphingDialogSubtitle className="text-zinc-700 dark:text-zinc-400">
+              {type}
+            </MorphingDialogSubtitle>
           </div>
           <button
             type="button"
@@ -65,15 +66,15 @@ export default function MorphingDialogBasicOne({
           <MorphingDialogImage
             src={imageUrl}
             alt="img"
-            className="DialogImage h-full w-full"
+            className="DialogImage h-full w-full p-2"
           />
           <div className="p-6">
             <MorphingDialogTitle className="text-2xl text-zinc-950 dark:text-zinc-50">
               {name}
             </MorphingDialogTitle>
-            {/* <MorphingDialogSubtitle className="text-zinc-700 dark:text-zinc-400">
-              {Edouard Wilfrid Buquet}
-            </MorphingDialogSubtitle> */}
+            <MorphingDialogSubtitle className="text-zinc-700 dark:text-zinc-400">
+              {type}
+            </MorphingDialogSubtitle>
             <MorphingDialogDescription
               disableLayoutAnimation
               variants={{

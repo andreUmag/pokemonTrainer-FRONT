@@ -68,10 +68,12 @@ function MorphingDialogTrigger({
   className,
   style,
   triggerRef,
+  asChild = false
 }) {
   const { setIsOpen, isOpen, uniqueId } = useMorphingDialog();
 
-  const handleClick = useCallback(() => {
+  const handleClick = useCallback((e) => {
+    e.stopPropagation();
     setIsOpen(!isOpen);
   }, [isOpen, setIsOpen]);
 
@@ -85,21 +87,58 @@ function MorphingDialogTrigger({
     [isOpen, setIsOpen]
   );
 
+  if (asChild && React.isValidElement(children)) {
+    return React.cloneElement(children, {
+      ref: (node) => {
+        // Manejo de refs
+        if (triggerRef) {
+          if (typeof triggerRef === 'function') {
+            triggerRef(node);
+          } else {
+            triggerRef.current = node;
+          }
+        }
+        if (children.ref) {
+          if (typeof children.ref === 'function') {
+            children.ref(node);
+          } else {
+            children.ref.current = node;
+          }
+        }
+      },
+      onClick: (e) => {
+        handleClick(e);
+        children.props.onClick?.(e);
+      },
+      onKeyDown: (e) => {
+        handleKeyDown(e);
+        children.props.onKeyDown?.(e);
+      },
+      'aria-haspopup': "dialog",
+      'aria-expanded': isOpen,
+      'aria-controls': `motion-ui-morphing-dialog-content-${uniqueId}`,
+      className: cn('relative cursor-pointer', children.props.className, className),
+      style: { ...children.props.style, ...style }
+    });
+  }
+
   return (
-    <motion.button
+    <motion.div
       ref={triggerRef}
       layoutId={`dialog-${uniqueId}`}
       className={cn('relative cursor-pointer', className)}
       onClick={handleClick}
       onKeyDown={handleKeyDown}
       style={style}
+      role="button"
+      tabIndex={0}
       aria-haspopup="dialog"
       aria-expanded={isOpen}
       aria-controls={`motion-ui-morphing-dialog-content-${uniqueId}`}
       aria-label={`Open dialog ${uniqueId}`}
     >
       {children}
-    </motion.button>
+    </motion.div>
   );
 }
 
