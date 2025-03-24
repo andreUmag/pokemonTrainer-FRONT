@@ -1,12 +1,12 @@
 "use client";
-import React from 'react';
 import ShinyText from "@/components/ShinyText";
-import {toast} from "nextjs-toast-notify";
 import axiosClient from "@/lib/axiosClient";
+import { redirect, useSearchParams } from "next/navigation";
+import { toast } from "nextjs-toast-notify";
+import React, { Suspense } from 'react';
 import "./reset-password.css";
-import {redirect, useSearchParams} from "next/navigation";
 
-const Page = () => {
+const ResetPasswordForm = () => {
   const searchParams = useSearchParams();
   const [form, setForm] = React.useState({
     password: "",
@@ -63,6 +63,14 @@ const Page = () => {
         <button className="gradient-button" onClick={onPasswordReset}>RESETEAR CONTRASEÑA</button>
       </div>
     </div>
+  );
+};
+
+const Page = () => {
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <ResetPasswordForm />
+    </Suspense>
   );
 };
 
