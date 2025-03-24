@@ -1,7 +1,7 @@
 "use client";
 import "./teams.css";
 import GlitchText from "@/components/GlitchText";
-import PokemonCard from "@/components/CardPokemon";
+import NewCardPokerModal from "@/components/NewCardPokeModal";
 import ShinyText from "@/components/ShinyText";
 import { useEffect, useState } from "react";
 import Link from "next/link";
@@ -38,7 +38,7 @@ function teamsPage() {
         </div>
         <div className="cardsTeams flex justify-center m-5">
           {pokemonTeam.map((pokemon) => (
-            <PokemonCard
+            <NewCardPokerModal
               key={pokemon.id}
               name={pokemon.name}
               imageUrl={pokemon.imageUrl}
@@ -53,7 +53,7 @@ function teamsPage() {
         <Link href="/home">
           <button className="gradient-button">Volver al Inicio</button>
         </Link>
-        <p>Editar equipo proximamente</p> 
+        <p>Editar equipo proximamente</p>
       </div>
     </div>
   );

@@ -1,11 +1,11 @@
 "use client";
 import "./home.css";
 import ShinyText from "@/components/ShinyText";
-import PokemonCard from "@/components/CardPokemon";
 import BattleCard from "@/components/CardBattle";
 import axiosClient from "@/lib/axiosClient";
 import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
+import NewCardPokerModal from "@/components/NewCardPokeModal";
 
 const pokemonTeam = [];
 
@@ -114,7 +114,7 @@ function HomePage() {
             </div>
             <div className="cardsteams">
               {pokemonTeam.map((pokemon) => (
-                <PokemonCard
+                <NewCardPokerModal
                   key={pokemon.id}
                   name={pokemon.name}
                   imageUrl={pokemon.imageUrl}
