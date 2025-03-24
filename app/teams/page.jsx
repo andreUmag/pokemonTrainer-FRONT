@@ -1,48 +1,32 @@
+"use client";
 import "./teams.css";
+import GlitchText from "@/components/GlitchText";
 import PokemonCard from "@/components/CardPokemon";
 import ShinyText from "@/components/ShinyText";
-
-const pokemonTeam = [
-  {
-    id: 1,
-    name: "Pikachu",
-    imageUrl:
-      "https://ivector.xyz/public/wp-content/uploads/pikachu-electrico-vector-01.jpg",
-    description: "Un Pokémon eléctrico muy popular y poderoso.",
-  },
-  {
-    id: 2,
-    name: "Charizard",
-    imageUrl:
-      "https://i.pinimg.com/736x/27/78/00/27780014e4740d691d824c3da7fa9167.jpg",
-    description: "Un Pokémon de fuego y volador increíblemente fuerte.",
-  },
-  {
-    id: 3,
-    name: "Bulbasaur",
-    imageUrl:
-      "https://static.wikia.nocookie.net/kingsfan-characters/images/9/9b/Ash%27s_bulbasaur.png",
-    description: "Un Pokémon planta con poderes curativos.",
-  },
-  {
-    id: 4,
-    name: "Squirtle",
-    imageUrl:
-      "https://static0.gamerantimages.com/wordpress/wp-content/uploads/2019/11/Squirtle-Using-Water-Gun-Attack.jpg",
-    description: "Un Pokémon de agua, pequeño pero tenaz.",
-  },
-  {
-    id: 5,
-    name: "Jigglypuff",
-    imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ8zV4arjYWfTbmtyiYihhn-Q2gkV4EMbTrYA&s",
-    description: "Un Pokémon que adormece a sus oponentes con su canto.",
-  },
-];
+import { useEffect, useState } from "react";
+import Link from "next/link";
 
 function teamsPage() {
+  const [pokemonTeam, setPokemonTeam] = useState([]);
+
+  useEffect(() => {
+    const fetchPokemonTeam = async () => {
+      try {
+        const response = await fetch(
+          "https://run.mocky.io/v3/840d2992-5703-4bf0-bdb9-98af6ad303da"
+        );
+        const data = await response.json();
+        console.log("This is the endpoint`s teams", data);
+        setPokemonTeam(data);
+      } catch (error) {
+        console.error("Error al obtener el equipo Pokémon:", error);
+      }
+    };
+    fetchPokemonTeam();
+  }, []);
+
   return (
-    <div className="teamsPage flex justify-center mt-[100px]">
+    <div className="teamsPage grid justify-center mt-[100px]">
       <div className="myteams grid justify-center">
         <div className="nav flex justify-center ">
           <ShinyText
@@ -65,7 +49,12 @@ function teamsPage() {
           ))}
         </div>
       </div>
-      <div className="pokemonsSelect"></div>
+      <div className="pokemonsSelect">
+        <Link href="/home">
+          <button className="gradient-button">Volver al Inicio</button>
+        </Link>
+        <p>Editar equipo proximamente</p> 
+      </div>
     </div>
   );
 }
