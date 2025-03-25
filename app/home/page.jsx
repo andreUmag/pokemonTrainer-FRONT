@@ -4,7 +4,7 @@ import ShinyText from "@/components/ShinyText";
 import BattleCard from "@/components/CardBattle";
 import BattleModal from "@/components/BattleModal";
 import axiosClient from "@/lib/axiosClient";
-import { useEffect, useState } from "react";
+import { use, useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import NewCardPokerModal from "@/components/NewCardPokeModal";
 
@@ -28,11 +28,23 @@ function HomePage() {
     const fetchPokemonTeam = async () => {
       try {
         const response = await fetch(
-          "https://run.mocky.io/v3/1caaf81e-9221-4339-b9b1-c70148df4f1d"
+          "https://gestor-equipos-pokemon-backend-h6g9cge5hbeefagx.canadacentral-01.azurewebsites.net/api/equipos-entrenador/entrenador/1"
         );
         const data = await response.json();
+        const equipoSeleccionado = data[0].equipoSeleccionado;
+        console.log("equipo seleccionado", equipoSeleccionado);
+
+        const response2 = await fetch(
+          "https://gestor-equipos-pokemon-backend-h6g9cge5hbeefagx.canadacentral-01.azurewebsites.net/api/equipos/" +
+            equipoSeleccionado
+        );
+
+        const data2 = await response2.json();
         console.log("teams", data);
-        setPokemonTeam(data);
+        console.log("teams for id", data2);
+        setPokemonTeam(data2);
+
+        console.log("pokemon team", data2.nombre);
       } catch (error) {
         console.error("Error al obtener el equipo Pokémon:", error);
       }
@@ -41,10 +53,10 @@ function HomePage() {
   }, []);
 
   useEffect(() => {
-    if (pokemonTeam && pokemonTeam.pokemonIds) {
+    if (pokemonTeam && pokemonTeam.pokemonesIds) {  
       const fetchPokemonInfo = async () => {
         try {
-          const requests = pokemonTeam.pokemonIds.map((id) =>
+          const requests = pokemonTeam.pokemonesIds.map((id) => 
             fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
           );
           const responses = await Promise.all(requests);
@@ -82,13 +94,16 @@ function HomePage() {
     };
 
     try {
-      const response = await fetch("https://run.mocky.io/v3/21169be0-49e5-46fe-83a2-4bc19d80b1c2", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(battleData),
-      });
+      const response = await fetch(
+        "https://run.mocky.io/v3/21169be0-49e5-46fe-83a2-4bc19d80b1c2",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(battleData),
+        }
+      );
       const result = await response.json();
       console.log("battle result", result);
       setBattles([result]);
@@ -168,45 +183,48 @@ function HomePage() {
             </div>
             <div className="teamss">
               {pokemonInfo && pokemonInfo.length > 0 ? (
-              <div className="cardsteams">
-                {pokemonInfo.map((pokemon) => (
-                  <NewCardPokerModal
-                    key={pokemon.id}
-                    name={pokemon.name}
-                    imageUrl={pokemon.sprites.front_default}
-                    type={pokemon.types[0].type.name}
-                  />
-                ))}
-              </div>
-            ) : (
-              <div className="w-[100px] h-[100px] rounded-2xl border-4 newteam">
-                <a href="/newteam">
-                  <svg
-                    style={{ opacity: 0.4 }}
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="auto"
-                    height="auto"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    stroke="currentColor"
-                    strokeWidth="2"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    className="lucide lucide-square-plus"
-                  >
-                    <rect width="18" height="18" x="3" y="3" rx="2" />
-                    <path d="M8 12h8" />
-                    <path d="M12 8v8" />
-                  </svg>
-                </a>
-              </div>
-            )}
+                <div className="cardsteams">
+                  {pokemonInfo.map((pokemon) => (
+                    <NewCardPokerModal
+                      key={pokemon.id}
+                      name={pokemon.name}
+                      imageUrl={pokemon.sprites.front_default}
+                      type={pokemon.types[0].type.name}
+                    />
+                  ))}
+                </div>
+              ) : (
+                <div className="w-[100px] h-[100px] rounded-2xl border-4 newteam">
+                  <a href="/newteam">
+                    <svg
+                      style={{ opacity: 0.4 }}
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="auto"
+                      height="auto"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      className="lucide lucide-square-plus"
+                    >
+                      <rect width="18" height="18" x="3" y="3" rx="2" />
+                      <path d="M8 12h8" />
+                      <path d="M12 8v8" />
+                    </svg>
+                  </a>
+                </div>
+              )}
             </div>
           </div>
         </div>
       </div>
       {selectedBattle && (
-        <BattleModal battle={selectedBattle} onClose={() => setSelectedBattle(null)} />
+        <BattleModal
+          battle={selectedBattle}
+          onClose={() => setSelectedBattle(null)}
+        />
       )}
     </div>
   );
