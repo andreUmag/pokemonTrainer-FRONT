@@ -31,7 +31,7 @@ const BattleModal = ({ battle, onClose }) => {
         <p>Pokémon Restantes de Gary: {battle.remainingPokemon.gary}</p>
         <h4>Detalles de la Batalla</h4>
         {battle.details.map((detail, index) => (
-          <div key={index}>
+          <div key={index} className="battle-detail">
             <p>Ronda: {detail.round}</p>
             <p>Atacante: {detail.attacker}</p>
             <p>Defensor: {detail.defender}</p>
