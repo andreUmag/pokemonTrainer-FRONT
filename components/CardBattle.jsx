@@ -1,10 +1,8 @@
-"use client";
-
+import React from "react";
 import "./BattleCard.css";
 import SpotlightCard from "@/components/SpotlightCard";
 
-const BattleCard = ({ date, win }) => {
-
+const BattleCard = ({ date, win, onClick }) => {
   const result = win ? "WIN" : "LOSE";
   const color = win ? "0, 0, 255, 0.5" : "255, 0, 0, 0.5";
 
@@ -17,7 +15,8 @@ const BattleCard = ({ date, win }) => {
       <div className="imageContainerBattle" style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
         <img src='./pokeball.webp' alt={date} className="imgBattle" />
       </div>
-      <h3 className="result">{result}</h3>
+      <p className="result">{win ? "WIN" : "LOSE"}</p>
+      <button className="expand-button" onClick={onClick}>+</button>
     </SpotlightCard>
   );
 };
