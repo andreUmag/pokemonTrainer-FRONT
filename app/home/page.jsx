@@ -130,15 +130,41 @@ function HomePage() {
                 />
               </a>
             </div>
-            <div className="cardsteams">
-            {pokemonInfo.map((pokemon) => (
-                <NewCardPokerModal
-                  key={pokemon.id}
-                  name={pokemon.name}
-                  imageUrl={pokemon.sprites.front_default}
-                  type={pokemon.types[0].type.name}
-                />
-              ))}
+            <div className="teamss">
+              {pokemonInfo && pokemonInfo.length > 0 ? (
+              <div className="cardsteams">
+                {pokemonInfo.map((pokemon) => (
+                  <NewCardPokerModal
+                    key={pokemon.id}
+                    name={pokemon.name}
+                    imageUrl={pokemon.sprites.front_default}
+                    type={pokemon.types[0].type.name}
+                  />
+                ))}
+              </div>
+            ) : (
+              <div className="w-[100px] h-[100px] rounded-2xl border-4 newteam">
+                <a href="/newteam">
+                  <svg
+                    style={{ opacity: 0.4 }}
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="auto"
+                    height="auto"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    className="lucide lucide-square-plus"
+                  >
+                    <rect width="18" height="18" x="3" y="3" rx="2" />
+                    <path d="M8 12h8" />
+                    <path d="M12 8v8" />
+                  </svg>
+                </a>
+              </div>
+            )}
             </div>
           </div>
         </div>

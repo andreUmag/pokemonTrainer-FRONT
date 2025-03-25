@@ -77,9 +77,20 @@
   margin-top: 10px;
 }
 .cardsteams {
-  margin-top: 20px;
   display: flex;
-  justify-content: center;
+  flex-direction: row;
+}
+.teamss{
+  padding: 20px;
+  align-items: center;
+  display: flex;
+  justify-content: start;
+}
+
+.newteam{
+  margin-right: 50px;
+  border-color: rgba(67, 67, 67, 0.3);
+  transform: translateX(150px);
 }
 
 .battlescards {
@@ -144,6 +155,19 @@
     margin-left: 5px;
   }
 
+  .teamss{
+    display: grid;
+    justify-content: space-between;
+  }
+
+  .newteam{
+    align-items: center;
+    justify-content: center;
+    margin-right: 0px;
+    margin-top: 30px;
+    transform: translateX(130px);
+  }
+
   .home-page .team {
     margin-top: -40px;
     width: calc(100% - 1px);
@@ -200,4 +224,9 @@
   .home-page {
     width: auto;
   }
+}
+
+.newteam:hover{
+  width: 105px;
+  height: 105px;
 }
